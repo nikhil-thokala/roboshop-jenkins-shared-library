@@ -3,6 +3,7 @@ def call() {
         agent any
 
         stages {
+
             stage('Compile/Build') {
                 steps {
                     script {
@@ -11,7 +12,6 @@ def call() {
                 }
             }
 
-
             stage('Test Cases') {
                 steps {
                     script {
@@ -19,7 +19,6 @@ def call() {
                     }
                 }
             }
-
 
         }
     }
