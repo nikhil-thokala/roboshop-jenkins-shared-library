@@ -8,10 +8,13 @@ def compile() {
 }
 
 def testcases() {
-    if(app_lang == "nodejs") {
-        sh 'echo test'
-    }
-    if(app_lang == "maven") {
-        sh 'echo test'
-    }
+    // npm test
+    // mvn test
+    // python -m unittests
+    // go test
+    sh 'echo ok'
+}
+
+def codequality(){
+    sh 'sonar-scanner' -Dsonar.host.url=//172.31.2.104:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectkey=${component}
 }
