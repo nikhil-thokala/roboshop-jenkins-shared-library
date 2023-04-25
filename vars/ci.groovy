@@ -9,6 +9,7 @@ def call() {
 
             stage('Compile/Build') {
                 steps {
+                    sh 'env'
                     script {
                         common.compile()
                     }
@@ -33,5 +34,15 @@ def call() {
             }
 
         }
+
+        post {
+            failure {
+                mail body: '${component} - Pipeline Failed \n ${BUILD_URL}', from: 'nikhil.rockz12@gmail.com',  subject: '${component} - Pipeline Failed', to: 'nikhil.rockz12@gmail.com'
+
+            }
+        }
+
+
+
     }
 }
