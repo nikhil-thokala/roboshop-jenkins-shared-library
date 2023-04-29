@@ -13,10 +13,13 @@ try {
         sh 'ls -l'
     }
 
+    sh 'env'
 
+    if(env.BRANCH_NAME != "main"){
     stage('Compile/Build') {
-        sh 'env'
         common.compile()
+}
+
     }
 
     stage('Test Cases') {
