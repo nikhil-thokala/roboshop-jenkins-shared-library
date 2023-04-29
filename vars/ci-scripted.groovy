@@ -4,10 +4,19 @@ def call() {
     }
     node('workstation') {
 try {
+
+    stage('Check out code') {
+        sh 'ls -l'
+       cleanWs()
+        sh 'ls -l'
+        git branch: 'main', url: 'https://github.com/nikhil-thokala/cart'
+        sh 'ls -l'
+    }
+
+
     stage('Compile/Build') {
         sh 'env'
         common.compile()
-
     }
 
     stage('Test Cases') {
